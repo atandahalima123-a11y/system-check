@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>System Check</title>
+
+<style>
+body {
+margin: 0;
+min-height: 100vh;
+background: #05070d;
+color: #f4f4f5;
+font-family: "Courier New", monospace;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 24px;
+}
+
+.card {
+width: 100%;
+max-width: 620px;
+border: 1px solid #1f2937;
+border-radius: 24px;
+padding: 32px;
+background: linear-gradient(145deg, #0b1020, #080a12);
+box-shadow: 0 0 35px rgba(34, 197, 94, 0.12);
+text-align: center;
+}
+
+.small {
+color: #9ca3af;
+font-size: 14px;
+margin-bottom: 10px;
+}
+
+h1 {
+font-size: 34px;
+margin: 18px 0;
+line-height: 1.2;
+}
+
+p {
+line-height: 1.7;
+color: #d1d5db;
+font-size: 16px;
+}
+
+.buttons {
+display: grid;
+gap: 12px;
+margin-top: 28px;
+}
+
+button {
+background: transparent;
+color: #f4f4f5;
+border: 1px solid #22c55e;
+border-radius: 14px;
+padding: 15px 18px;
+font-family: inherit;
+font-size: 15px;
+cursor: pointer;
+transition: 0.25s ease;
+}
+
+button:hover {
+background: rgba(34, 197, 94, 0.12);
+transform: translateY(-2px);
+box-shadow: 0 0 18px rgba(34, 197, 94, 0.2);
+}
+
+.hidden {
+display: none;
+}
+
+.terminal {
+text-align: left;
+background: #030712;
+border: 1px solid #111827;
+border-radius: 18px;
+padding: 22px;
+margin-top: 20px;
+color: #86efac;
+font-size: 15px;
+line-height: 1.8;
+}
+
+.final-message {
+text-align: left;
+margin-top: 22px;
+}
+
+.status {
+margin-top: 24px;
+padding: 16px;
+border-radius: 16px;
+background: rgba(34, 197, 94, 0.08);
+color: #bbf7d0;
+font-size: 14px;
+line-height: 1.8;
+text-align: left;
+}
+
+.heart {
+color: #22c55e;
+}
+</style>
+</head>
+
+<body>
+
+<main class="card">
+
+<!-- SCREEN 1 -->
+<section id="question-screen">
+<div class="small">SECURE CONNECTION ESTABLISHED</div>
+<div class="small">Relationship status check initiated...</div>
+
+<h1>Can we get back to being good?</h1>
+
+<p>
+I think you already know the answer, but just in case the system needs confirmation...
+</p>
+
+<div class="buttons">
+<button onclick="showProcessing()">Yes</button>
+<button onclick="showProcessing()">Obviously yes</button>
+<button onclick="showProcessing()">I’m annoyed, but yes</button>
+<button onclick="showProcessing()">We’re figuring it out... but yes</button>
+<button onclick="showProcessing()">You’re still my person</button>
+</div>
+</section>
+
+<!-- SCREEN 2 -->
+<section id="processing-screen" class="hidden">
+<div class="small">SYSTEM CHECK RUNNING</div>
+
+<h1>Processing...</h1>
+
+<div class="terminal">
+Checking friendship status... active<br>
+Checking love status... still here<br>
+Checking distance impact... temporary<br>
+Checking favourite person... confirmed<br>
+Checking if we can get back to being good... yes
+</div>
+
+<div class="buttons">
+<button onclick="showResult()">View result</button>
+</div>
+</section>
+
+<!-- SCREEN 3 -->
+<section id="result-screen" class="hidden">
+<div class="small">RESULT FOUND</div>
+
+<h1><span class="heart">✓</span> Connection Secure</h1>
+
+<div class="final-message">
+<p>Hey you,</p>
+
+<p>
+I know things have not felt perfect lately.
+</p>
+
+<p>
+I know we have had moments where things felt heavy, confusing,
+frustrating, or distant.
+</p>
+
+<p>
+But underneath all of that, I want you to know this:
+</p>
+
+<p>
+You are still my person. You are still my best friend.
+I am still in your corner. And I hope I am still yours too.
+</p>
+
+<p>
+We do not have to be perfect to be okay.
+We just have to remember that it is you and me,
+not you versus me.
+</p>
+
+<p>
+So yes.
+</p>
+
+<p>
+We can get back to being good.
+</p>
+
+<p>
+And I am still here.
+</p>
+
+<p>
+Love,<br>
+Halima
+</p>
+</div>
+
+<div class="status">
+System Status: Stable<br>
+Friendship Status: Active<br>
+Love Status: Still Here<br>
+Preferred Human: You
+</div>
+
+<div class="buttons">
+<button onclick="showQuestion()">Return to your person</button>
+</div>
+</section>
+
+</main>
+
+<script>
+function showProcessing() {
+document.getElementById("question-screen").classList.add("hidden");
+document.getElementById("result-screen").classList.add("hidden");
+document.getElementById("processing-screen").classList.remove("hidden");
+}
+
+function showResult() {
+document.getElementById("processing-screen").classList.add("hidden");
+document.getElementById("question-screen").classList.add("hidden");
+document.getElementById("result-screen").classList.remove("hidden");
+}
+
+function showQuestion() {
+document.getElementById("result-screen").classList.add("hidden");
+document.getElementById("processing-screen").classList.add("hidden");
+document.getElementById("question-screen").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
